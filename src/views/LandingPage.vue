@@ -54,7 +54,13 @@
         <div class="content">
           <v-container class="container">
             <v-row>
-              <v-col cols="12" sm="12" md="12" lg="8" class="left">
+              <v-col
+                cols="12"
+                sm="12"
+                md="12"
+                lg="8"
+                class="left order-last order-md-first"
+              >
                 <p>
                   For School Managers or Head of Institutions, Register
                   Institution for credibility
