@@ -250,7 +250,7 @@ export default {
 }
 .quick__links ul {
   border-top: 5px solid rgba(235, 243, 255, 0.1);
-  padding: 1.5rem 1rem;
+  padding: 2rem 1rem;
   list-style-type: none;
 }
 .quick__links ul li {
@@ -311,6 +311,9 @@ export default {
   }
   .left {
     padding: 1rem;
+  }
+  .quick__links ul {
+    padding: 0.5rem 1rem;
   }
 }
 </style>

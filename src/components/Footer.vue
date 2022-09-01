@@ -79,9 +79,8 @@ export default {
   }
   .footer > div:first-of-type {
     display: flex;
-    flex-direction: column;
     align-items: start;
-    justify-content: center;
+    justify-content: start;
   }
   .footer ul {
     list-style-type: none;
@@ -94,9 +93,7 @@ export default {
   .footer ul li:nth-child(even) {
     display: none;
   }
-  .social__icons {
-    margin-top: 2rem;
-  }
+
   .social__icons > a {
     height: 30px;
     width: 30px;
