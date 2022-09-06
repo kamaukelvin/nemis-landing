@@ -1,83 +1,55 @@
 <template>
-  <div class="mobile__menu">
-    <v-app-bar dense elevation="1" color="#fff">
-      <!-- <template v-slot:img="{ props }">
-        <v-img
-          v-bind="props"
-          gradient="to top right, rgba(0,59,149,.5), rgba(128,208,199,.8)"
-        ></v-img>
-      </template> -->
-
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <!-- <v-app-bar-title>Welcome to Nemis</v-app-bar-title> -->
-
-      <v-spacer></v-spacer>
-
-      <!-- <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn> -->
-    </v-app-bar>
-    <v-navigation-drawer v-model="drawer" absolute left temporary>
-      <v-list-item class="menu__header">
-        <v-list-item-content>
-          <v-list-item-title class="text-h6">
-            <v-img
-              src="/assets/images/shield.png"
-              class="shield"
-              contain
-              max-height="95"
-              max-width="250"
-            />
-          </v-list-item-title>
-          <v-list-item-subtitle class="header__subtitle">
-            REPUBLIC OF KENYA
-          </v-list-item-subtitle>
-          <v-list-item-subtitle class="header__subtitle">
-            MINISTRY OF EDUCATION
-          </v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider></v-divider>
-
-      <div class="menu__content">
-        <nav class="menu">
-          <router-link
-            class="menu__item"
-            :to="item.route"
-            v-for="item in items"
-            :key="item.title"
-            :class="item.active && 'active'"
-          >
-            <div class="menu__item__content" :class="item.active && 'active'">
-              <div><img :src="item.icon" /></div>
-              <div class="menu__title">
-                <h5>{{ item.title }}</h5>
-                <small>{{ item.subtitle }}</small>
-              </div>
+  <div>
+    <v-list-item class="menu__header">
+      <v-list-item-content>
+        <v-list-item-title class="text-h6">
+          <v-img
+            src="/assets/images/shield.png"
+            class="shield"
+            contain
+            max-height="95"
+            max-width="250"
+          />
+        </v-list-item-title>
+        <v-list-item-subtitle class="header__subtitle">
+          REPUBLIC OF KENYA
+        </v-list-item-subtitle>
+        <v-list-item-subtitle class="header__subtitle">
+          MINISTRY OF EDUCATION
+        </v-list-item-subtitle>
+      </v-list-item-content>
+    </v-list-item>
+    <div class="menu__content">
+      <nav class="menu">
+        <router-link
+          class="menu__item"
+          :to="item.route"
+          v-for="item in items"
+          :key="item.title"
+          :class="item.active && 'active'"
+        >
+          <div class="menu__item__content" :class="item.active && 'active'">
+            <div><img :src="item.icon" /></div>
+            <div class="menu__title">
+              <h5>{{ item.title }}</h5>
+              <small>{{ item.subtitle }}</small>
             </div>
-          </router-link>
-        </nav>
-        <!-- <div class="copyright">
+          </div>
+        </router-link>
+      </nav>
+      <!-- <div class="copyright">
         <p>© 2022 All Rights Reserved</p>
         <p>nemis@education.go.ke</p>
       </div> -->
-      </div>
-    </v-navigation-drawer>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "NavbarMobile",
-  props: {
-    msg: String,
-  },
-  data: () => ({
-    drawer: false,
+  name: "SideBar",
 
-    group: null,
+  data: () => ({
     items: [
       {
         title: "Register",
@@ -106,26 +78,22 @@ export default {
       },
     ],
   }),
-
-  watch: {
-    group() {
-      this.drawer = false;
-    },
-  },
 };
 </script>
 
 <style scoped>
-/* mobile menu styles */
 .menu__header {
   background: #19a0fb;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.6rem 0;
+  padding: 3.7rem 0;
+}
+.shield {
+  margin-bottom: 1rem;
 }
 .menu__header .header__subtitle {
-  font-size: 10px;
+  font-size: 12px;
   text-align: center;
   color: #fff !important;
   padding: 0.1rem 0;
@@ -137,22 +105,6 @@ export default {
   font-weight: bold;
 }
 
-.shield {
-  margin-bottom: 1rem;
-}
-.list-icon {
-  max-height: 50px;
-}
-.menu__content {
-  display: flex;
-  flex-direction: column;
-}
-.menu__content ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  flex: 1;
-}
 
 .menu__item {
   border-bottom: 1px solid rgba(0, 59, 149, 0.3);
@@ -202,6 +154,9 @@ nav a.router-link-exact-active:after {
   border-radius: 4px;
   box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.05);
 }
+.menu__title {
+  margin-top: 10px;
+}
 
 .menu__item__content img {
   max-height: 50px;
@@ -223,15 +178,5 @@ nav a.router-link-exact-active:after {
   margin-bottom: 0;
   font-size: 12px;
   color: #c4c4c4;
-}
-
-.mobile__menu {
-  display: none;
-}
-
-@media only screen and (max-width: 960px) {
-  .mobile__menu {
-    display: block;
-  }
 }
 </style>
